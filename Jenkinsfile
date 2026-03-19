@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Terraform Init') {
             steps {
-                withCredentials([file(credentialsId: 'gcp-svc-acct', variable: 'GOOGLE_CLOUD_KEYFILE_JSON')]) {
+                withCredentials([file(credentialsId: 'gcp-svc-acctlaks', variable: 'GOOGLE_CLOUD_KEYFILE_JSON')]) {
                     sh '''
                     export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_CLOUD_KEYFILE_JSON
                     terraform init
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Terraform Plan') {
             steps {
-                withCredentials([file(credentialsId: 'gcp-svc-acct', variable: 'GOOGLE_CLOUD_KEYFILE_JSON')]) {
+                withCredentials([file(credentialsId: 'gcp-svc-acctlaks', variable: 'GOOGLE_CLOUD_KEYFILE_JSON')]) {
                     sh '''
                     export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_CLOUD_KEYFILE_JSON
                     terraform plan
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Terraform Apply') {
             steps {
-                withCredentials([file(credentialsId: 'gcp-svc-acct', variable: 'GOOGLE_CLOUD_KEYFILE_JSON')]) {
+                withCredentials([file(credentialsId: 'gcp-svc-acctlaks', variable: 'GOOGLE_CLOUD_KEYFILE_JSON')]) {
                     sh '''
                     export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_CLOUD_KEYFILE_JSON
                     terraform apply -auto-approve
