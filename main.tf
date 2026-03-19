@@ -1,7 +1,7 @@
 variable "gcp_project" {}
 
 provider "google" {
-  project = var.gcp_project 
+  project = "qwiklabs-gcp-00-5d17ee69ad6e" 
   region  = "us-west1"
 }
 
