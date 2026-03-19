@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        TF_VAR_gcp_project = "qwiklabs-gcp-XX-XXXXXXXXXXXX" // replace with your project ID ...
+        TF_VAR_gcp_project = "qwiklabs-gcp-00-5d17ee69ad6e" // replace with your project ID ...
     }
     stages {
         stage('Terraform Init') {
